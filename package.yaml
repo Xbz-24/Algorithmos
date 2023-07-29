@@ -1,0 +1,36 @@
+name:                Algoritmos
+version:             0.1.0.0
+github:              "Xbz-24/Algoritmos"
+license:             BSD3
+author:              xbz
+maintainer:          renatochavez7@gmail.com
+copyright:           "Copyright (c) 2023, Xbz"
+
+extra-source-files:
+- README.md
+
+# Metadata used when generating the cabal file
+# synopsis:
+
+# description:
+
+category:            Data
+build-type:          Simple
+
+library:
+  source-dirs: src
+  exposed-modules: DataStructures.BalancedTree.TreapTree
+  dependencies:
+    - base >= 4.7 && < 5
+    - random
+
+tests:
+  TreapTreeTest:       # Name of the test suite
+    main:              datastructures/balancedtree/TreapTreeTest.hs # Name of the file containing main test function
+    source-dirs:       test             # Directory where test files are located
+    dependencies: 
+      - base
+      - Algoritmos     # Your library
+      - hspec
+      - QuickCheck
+      - random

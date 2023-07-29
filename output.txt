@@ -1,0 +1,181 @@
+Algoritmos> build (lib + test)
+Preprocessing library for Algoritmos-0.1.0.0..
+Building library for Algoritmos-0.1.0.0..
+Preprocessing test suite 'TreapTreeTest' for Algoritmos-0.1.0.0..
+Building test suite 'TreapTreeTest' for Algoritmos-0.1.0.0..
+[1 of 2] Compiling Main
+
+/Users/xbz/Developer/1/Algoritmos/test/datastructures/balancedtree/TreapTreeTest.hs:11:13: error:
+    • Ambiguous type variable ‘a0’ arising from a use of ‘property’
+      prevents the constraint ‘(Arbitrary a0)’ from being solved.
+      Probable fix: use a type annotation to specify what ‘a0’ should be.
+      Potentially matching instances:
+        instance (Arbitrary a, Arbitrary b) => Arbitrary (Either a b)
+          -- Defined in ‘Test.QuickCheck.Arbitrary’
+        instance Arbitrary Ordering
+          -- Defined in ‘Test.QuickCheck.Arbitrary’
+        ...plus 20 others
+        ...plus 64 instances involving out-of-scope types
+        (use -fprint-potential-instances to see them all)
+    • In the first argument of ‘($)’, namely ‘property’
+      In the second argument of ‘($)’, namely
+        ‘property
+           $ \ x
+               -> let
+                    gen = ...
+                    ....
+                  in member x treap’
+      In a stmt of a 'do' block:
+        it "should always find an inserted element"
+          $ property
+              $ \ x
+                  -> let
+                       gen = ...
+                       ....
+                     in member x treap
+   |
+11 |             property $ \x  ->
+   |             ^^^^^^^^
+
+/Users/xbz/Developer/1/Algoritmos/test/datastructures/balancedtree/TreapTreeTest.hs:13:34: error:
+    • Ambiguous type variable ‘a0’ arising from a use of ‘insert’
+      prevents the constraint ‘(Ord a0)’ from being solved.
+      Relevant bindings include
+        x :: a0
+          (bound at test/datastructures/balancedtree/TreapTreeTest.hs:11:25)
+      Probable fix: use a type annotation to specify what ‘a0’ should be.
+      Potentially matching instances:
+        instance Ord Ordering -- Defined in ‘ghc-prim-0.9.0:GHC.Classes’
+        instance Ord Integer -- Defined in ‘GHC.Num.Integer’
+        ...plus 23 others
+        ...plus five instances involving out-of-scope types
+        (use -fprint-potential-instances to see them all)
+    • In the expression: insert x empty gen
+      In a pattern binding: (treap, _) = insert x empty gen
+      In the expression:
+        let
+          gen = mkStdGen 42
+          (treap, _) = insert x empty gen
+        in member x treap
+   |
+13 |                     (treap, _) = insert x empty gen
+   |                                  ^^^^^^
+
+/Users/xbz/Developer/1/Algoritmos/test/datastructures/balancedtree/TreapTreeTest.hs:14:20: error:
+    • Ambiguous type variable ‘a0’ arising from a use of ‘member’
+      prevents the constraint ‘(Ord a0)’ from being solved.
+      Relevant bindings include
+        treap :: Treap a0
+          (bound at test/datastructures/balancedtree/TreapTreeTest.hs:13:22)
+        x :: a0
+          (bound at test/datastructures/balancedtree/TreapTreeTest.hs:11:25)
+      Probable fix: use a type annotation to specify what ‘a0’ should be.
+      Potentially matching instances:
+        instance Ord Ordering -- Defined in ‘ghc-prim-0.9.0:GHC.Classes’
+        instance Ord Integer -- Defined in ‘GHC.Num.Integer’
+        ...plus 23 others
+        ...plus five instances involving out-of-scope types
+        (use -fprint-potential-instances to see them all)
+    • In the expression: member x treap
+      In the expression:
+        let
+          gen = mkStdGen 42
+          (treap, _) = insert x empty gen
+        in member x treap
+      In the second argument of ‘($)’, namely
+        ‘\ x
+           -> let
+                gen = ...
+                ....
+              in member x treap’
+   |
+14 |                 in member x treap
+   |                    ^^^^^^
+
+/Users/xbz/Developer/1/Algoritmos/test/datastructures/balancedtree/TreapTreeTest.hs:17:13: error:
+    • Ambiguous type variable ‘a1’ arising from a use of ‘property’
+      prevents the constraint ‘(Arbitrary a1)’ from being solved.
+      Probable fix: use a type annotation to specify what ‘a1’ should be.
+      Potentially matching instances:
+        instance (Arbitrary a, Arbitrary b) => Arbitrary (Either a b)
+          -- Defined in ‘Test.QuickCheck.Arbitrary’
+        instance Arbitrary Ordering
+          -- Defined in ‘Test.QuickCheck.Arbitrary’
+        ...plus 20 others
+        ...plus 64 instances involving out-of-scope types
+        (use -fprint-potential-instances to see them all)
+    • In the first argument of ‘($)’, namely ‘property’
+      In the second argument of ‘($)’, namely
+        ‘property
+           $ \ x
+               -> let
+                    gen = ...
+                    ....
+                  in not . member x $ delete x treap’
+      In a stmt of a 'do' block:
+        it "should never find a deleted element"
+          $ property
+              $ \ x
+                  -> let
+                       gen = ...
+                       ....
+                     in not . member x $ delete x treap
+   |
+17 |             property $ \x ->
+   |             ^^^^^^^^
+
+/Users/xbz/Developer/1/Algoritmos/test/datastructures/balancedtree/TreapTreeTest.hs:19:34: error:
+    • Ambiguous type variable ‘a1’ arising from a use of ‘insert’
+      prevents the constraint ‘(Ord a1)’ from being solved.
+      Relevant bindings include
+        x :: a1
+          (bound at test/datastructures/balancedtree/TreapTreeTest.hs:17:25)
+      Probable fix: use a type annotation to specify what ‘a1’ should be.
+      Potentially matching instances:
+        instance Ord Ordering -- Defined in ‘ghc-prim-0.9.0:GHC.Classes’
+        instance Ord Integer -- Defined in ‘GHC.Num.Integer’
+        ...plus 23 others
+        ...plus five instances involving out-of-scope types
+        (use -fprint-potential-instances to see them all)
+    • In the expression: insert x empty gen
+      In a pattern binding: (treap, _) = insert x empty gen
+      In the expression:
+        let
+          gen = mkStdGen 42
+          (treap, _) = insert x empty gen
+        in not . member x $ delete x treap
+   |
+19 |                     (treap, _) = insert x empty gen
+   |                                  ^^^^^^
+
+/Users/xbz/Developer/1/Algoritmos/test/datastructures/balancedtree/TreapTreeTest.hs:20:26: error:
+    • Ambiguous type variable ‘a1’ arising from a use of ‘member’
+      prevents the constraint ‘(Ord a1)’ from being solved.
+      Relevant bindings include
+        treap :: Treap a1
+          (bound at test/datastructures/balancedtree/TreapTreeTest.hs:19:22)
+        x :: a1
+          (bound at test/datastructures/balancedtree/TreapTreeTest.hs:17:25)
+      Probable fix: use a type annotation to specify what ‘a1’ should be.
+      Potentially matching instances:
+        instance Ord Ordering -- Defined in ‘ghc-prim-0.9.0:GHC.Classes’
+        instance Ord Integer -- Defined in ‘GHC.Num.Integer’
+        ...plus 23 others
+        ...plus five instances involving out-of-scope types
+        (use -fprint-potential-instances to see them all)
+    • In the second argument of ‘(.)’, namely ‘member x’
+      In the first argument of ‘($)’, namely ‘not . member x’
+      In the expression: not . member x $ delete x treap
+   |
+20 |                 in not . member x $ delete x treap
+   |                          ^^^^^^
+
+Error: [S-7282]
+       Stack failed to execute the build plan.
+       
+       While executing the build plan, Stack encountered the following errors:
+       
+       [S-7011]
+       While building package Algoritmos-0.1.0.0 (scroll up to its section to see the error) using:
+       /Users/xbz/.stack/setup-exe-cache/aarch64-osx/Cabal-simple_SvXsv1f__3.8.1.0_ghc-9.4.5 --verbose=1 --builddir=.stack-work/dist/aarch64-osx/Cabal-3.8.1.0 build lib:Algoritmos test:TreapTreeTest --ghc-options ""
+       Process exited with code: ExitFailure 1 

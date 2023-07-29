@@ -1,0 +1,49 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.1.
+--
+-- see: https://github.com/sol/hpack
+
+name:           Algoritmos
+version:        0.1.0.0
+category:       Data
+homepage:       https://github.com/Xbz-24/Algoritmos#readme
+bug-reports:    https://github.com/Xbz-24/Algoritmos/issues
+author:         xbz
+maintainer:     renatochavez7@gmail.com
+copyright:      Copyright (c) 2023, Xbz
+license:        BSD3
+build-type:     Simple
+extra-source-files:
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/Xbz-24/Algoritmos
+
+library
+  exposed-modules:
+      DataStructures.BalancedTree.TreapTree
+  other-modules:
+      Paths_Algoritmos
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , random
+  default-language: Haskell2010
+
+test-suite TreapTreeTest
+  type: exitcode-stdio-1.0
+  main-is: datastructures/balancedtree/TreapTreeTest.hs
+  other-modules:
+      Paths_Algoritmos
+  hs-source-dirs:
+      test
+  build-depends:
+      Algoritmos
+    , QuickCheck
+    , base
+    , hspec
+    , random
+  default-language: Haskell2010
